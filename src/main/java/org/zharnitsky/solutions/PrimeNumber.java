@@ -17,8 +17,8 @@ import java.util.stream.IntStream;
  * 0 ≤ n ≤ 10^9
  * <p>
  * Решение должно работать быстрее, чем перебор всех делителей от 2 до n (достаточно O(√n)).
- *
- * @link <a href="https://app.yeahub.ru/tasks/eb90744a-c7ae-4641-8765-969d8347d5dc">...</a>
+ * <p>
+ * @link <a href="https://app.yeahub.ru/tasks/eb90744a-c7ae-4641-8765-969d8347d5dc">Task link</a>
  */
 public class PrimeNumber {
 
