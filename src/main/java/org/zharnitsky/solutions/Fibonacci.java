@@ -1,6 +1,8 @@
 package org.zharnitsky.solutions;
 
 
+import java.util.stream.Stream;
+
 /**
  * N-е число Фибоначчи (Nth Fibonacci Number)
  * <p>
@@ -20,12 +22,19 @@ package org.zharnitsky.solutions;
  * <p>
  * 0 <= n <= 40 (результат помещается в 32-битный int)
  * <p>
+ *
  * @link <a href="https://app.yeahub.ru/tasks/6ea3cab8-08ec-4f25-9661-54fa4fe84629">Task link</a>
  */
 public class Fibonacci {
 
   public static int fibonacci(int n) {
-    // TODO: напишите решение здесь
-    return 0;
+    if (n == 0) {
+      return 0;
+    }
+    return Stream.iterate(new int[]{0, 1}, x -> new int[]{x[1], x[0] + x[1]})
+        .skip(n - 1)
+        .map(x -> x[1])
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException("n must be >=0"));
   }
 }
