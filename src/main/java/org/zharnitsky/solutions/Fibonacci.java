@@ -1,8 +1,6 @@
 package org.zharnitsky.solutions;
 
 
-import java.util.stream.Stream;
-
 /**
  * N-е число Фибоначчи (Nth Fibonacci Number)
  * <p>
@@ -28,13 +26,12 @@ import java.util.stream.Stream;
 public class Fibonacci {
 
   public static int fibonacci(int n) {
-    if (n == 0) {
-      return 0;
+    int first = 0, second = 1;
+    for (int i = 0; i < n; i++) {
+      var temp = first + second;
+      first = second;
+      second = temp;
     }
-    return Stream.iterate(new int[]{0, 1}, x -> new int[]{x[1], x[0] + x[1]})
-        .skip(n - 1)
-        .map(x -> x[1])
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException("n must be >=0"));
+    return first;
   }
 }
